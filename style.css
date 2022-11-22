@@ -1,0 +1,26 @@
+#container {
+    display: grid;
+    grid-template-columns: 42px 42px 42px 42px 42px 42px 42px 42px 42px 42px 42px 42px 42px 42px 42px 42px ;
+    grid-template-rows:  42px 42px 42px 42px 42px 42px 42px 42px 42px 42px 42px 42px 42px 42px 42px 42px ;
+    border-style: solid;
+    border-color: black;
+}
+
+.cell{
+    height: 40px;
+    width: 40px;
+    border-style: solid;
+    border-color: black;
+    text-align: center;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#reset{
+    margin-top: 20px;
+}
