@@ -6,7 +6,11 @@
     border-color: black;
 }
 
-.cell{
+.black {
+    background-color: black;
+}
+
+[class^="cell"]{
     height: 40px;
     width: 40px;
     border-style: solid;
