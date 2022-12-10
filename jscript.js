@@ -1,10 +1,12 @@
 const reset = document.getElementById('reset');
 let mouseStatus = "";
 const newGrid = document.getElementById('customGrid');
-
 const container = document.getElementById('container');
 const rowArray = [];
 const cellArray = [];
+const rowCountArray = [];
+const columnCountArray = [];
+
 
 function createGrid(){
     for(let i = 0; i<16; i++){
@@ -74,11 +76,28 @@ function clearGrid(){
             cellArray.splice(0, cellLength)
         }
     }
+    console.log('VICTORY')
+}
+
+
+function rowPrompt(){
+    let rowCount = window.prompt('Enter Number of Rows')
+    console.log(rowCount)
+    rowSort(rowCount)
 }
 
 function columnPrompt(){
-    let columnCount = prompt('Enter Column Count')
-    if (isNaN(columnCount)){
+    let columnCount = window.prompt('Enter Number of Columns')
+    console.log(columnCount)
+    columnSort(columnCount)
+}
+
+
+function columnSort(columnCount){
+    if(columnCount == null){
+        return columnCountArray[0] = 'bruh';
+    }
+    else if (isNaN(columnCount)){
         alert('Enter A Number!')
         columnPrompt()
     }
@@ -90,12 +109,19 @@ function columnPrompt(){
         alert('Enter a Number Less than 100!')
         columnPrompt()
     }
-    return columnCount
+    else if (columnCount % 1 != 0){
+        alert('Enter a Whole Number!')
+        columnPrompt()
+    }
+    else 
+    return columnCountArray[0] = columnCount;
  }
 
-function rowPrompt(){
-    let rowCount = prompt('Enter Row Count')
-    if (isNaN(rowCount)){
+function rowSort(rowCount){
+    if (rowCount == null){
+        return rowCountArray[0] = 'bruh';
+    }
+    else if (isNaN(rowCount)){
         alert('Enter a Number!')
         rowPrompt()
     }
@@ -107,14 +133,28 @@ function rowPrompt(){
         alert('Enter a Number Less than 100!')
         rowPrompt()
     }
-    return rowCount
+    else if (rowCount % 1 != 0){
+        alert('Enter a Whole Number!')
+        rowPrompt()
+    }
+    else return rowCountArray[0] = rowCount;
 }
 
 function customGrid(){
+    columnPrompt();
+    if(columnCountArray[0] == 'bruh'){
+        console.log(columnCountArray[0])
+        return;
+    }
+    rowPrompt();
+    if(rowCountArray[0] == 'bruh'){
+        console.log(columnCountArray[0])
+        return;
+    }
+    else
     clearGrid();
-    let columnCount = columnPrompt();
-    let rowCount = rowPrompt();
-    console.log(columnCount);
+    let rowCount = rowCountArray[0];
+    let columnCount = columnCountArray[0];
     for(let i = 0; i < rowCount; i++){
         let rowIteration = i;
         let newRow = document.createElement('div');
@@ -140,6 +180,7 @@ function customGrid(){
             }
     }
 }
+
 
 function resetButton (){
     for (let i = 0; i < cellArray.length; i++){
