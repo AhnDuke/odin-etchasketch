@@ -86,6 +86,10 @@ function columnPrompt(){
         alert('Enter a Number Greater Than 0!')
         columnPrompt()
     }
+    else if (columnCount > 100){
+        alert('Enter a Number Less than 100!')
+        columnPrompt()
+    }
     return columnCount
  }
 
@@ -97,6 +101,10 @@ function rowPrompt(){
     }
     else if (rowCount < 1){
         alert('Enter a Number Greater Than 0!')
+        rowPrompt()
+    }
+    else if (rowCount > 100){
+        alert('Enter a Number Less than 100!')
         rowPrompt()
     }
     return rowCount
